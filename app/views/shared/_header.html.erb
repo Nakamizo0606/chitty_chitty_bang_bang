@@ -1,0 +1,25 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class="header">
+  <div class="nav">
+    <div class="nav_left">
+      <%= link_to image_tag("logo1white.png", class: :logo), root_path %>
+    </div>
+    <% if user_signed_in? %>
+        <div class="nav_right"> 
+          <%= link_to "メリット", merit_recruitments_path, class: :nav_btn %>
+          <%= link_to "お仕事をお探しの方", root_path, class: :nav_btn %>
+          <%= link_to "人材をお探しの方", new_recruitment_path, class: :nav_btn %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav_btn %>
+          <%= link_to "my page", users_index_path, class: :nav_btn %>
+        </div> 
+    <% else %>
+      <div class="nav_right">
+        <%= link_to "メリット", merit_recruitments_path, class: :nav_btn %>
+        <%= link_to "お仕事をお探しの方", root_path, class: :nav_btn %>
+        <%= link_to "人材をお探しの方", new_recruitment_path, class: :nav_btn %>
+        <%= link_to "ログイン", new_user_session_path, class: :nav_btn %>
+        <%= link_to "新規登録", new_user_registration_path, class: :nav_btn %>
+      </div>
+    <% end %>
+  </div>
+</header>

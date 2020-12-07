@@ -1,0 +1,82 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+ 
+  <div class='title-contents'>
+    <div class='first-view-text'>
+      <p class='first-view-title'>時間を自由に使いたい</p>
+      <p class='first-view-title'>その想いを、私達がサポート致します。</p>
+    </div>
+    <div class='first-view'>
+      <div class='first-view-image'></div>
+    </div>
+  </div>
+
+
+  
+
+  <%# お仕事をお探しの方 %>
+  <div class='feature-contents'>
+    <ul class='feature-lists'>
+      <li class='list'>
+        <%= link_to root_path do %>
+        <%= image_tag "search.jpg", class:"list-pict" %>
+        <% end %>
+        <h3 class='feature-list-text'>
+          お仕事をお探しの方
+        </h3>
+        <p class='feature-list-description'>
+          豊富な飲食専門の求人データベースの中からあなたの希望・夢・目標・転職ペースに合わせてオンリーワンの仕事を自ら選べます。
+        </p>
+      </li>
+      <li class='list'>
+        <%= link_to new_recruitment_path do %>
+        <%= image_tag "cooking.jpg", class:"list-pict" %>
+        <% end %>
+        <h3 class='feature-list-text'>
+          人材をお探しの方
+        </h3>
+        <p class='feature-list-description'>
+          「人」「時間」「コスト」多様化する人事課題に対し、
+          オンライン上で人材探しがおこなえる。
+        </p>
+      </li>
+      <li class='list'>
+        <%= link_to new_recruitment_path do %>
+        <%= image_tag "easy.jpg", class:"list-pict" %>
+        <% end %>
+        <h3 class='feature-list-text'>
+          簡単に募集開始
+        </h3>
+        <p class='feature-list-description'>
+          ログインID・PW発行後に、求人募集にてテンプレートを作成し、募集情報 日時・報酬を入力すれば、すぐアプリに掲載されます。
+        </p>
+      </li>
+    </ul>
+  </div>
+  <%# /お仕事をお探しの方 %>
+  
+  <div class='ad-contents' style="background-image: url(<%= asset_path 'shake-hands.jpg'%>)">  
+    <h2 class='ad-title'>
+      お客様のベストパートナーでありたい
+    </h2>
+    <p class='ad-explain'>
+      私たちは飲食業界において難しい人材確保をなされている個人店舗、
+    </p>
+    <p class='ad-explain'>
+      企業の方々や
+      希望・夢・目標をもってお仕事を探されている人々の
+    </p>
+    <p class='ad-explain'>
+      ベストパートナーでありたいと考えております。
+    </p>
+  </div>
+
+  <div class='item-contents'>
+    <h2 class='title'>求人一覧</h2>
+    <ul class="item-lists">
+      <%= render partial: 'recruitment', collection: @recruitments %>
+    </ul>
+  </div>
+</div>
+<%= render "shared/footer" %>

@@ -1,0 +1,28 @@
+
+.header {
+  padding: 3rem 0;
+  background-color: black;
+  width: 100%;
+
+}
+.nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 200px;
+  margin-left: 60px;
+}
+.nav_btn{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: white;
+  text-decoration: none;
+  user-select: none;
+  border: 1px yellow solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin-right: 5vw;
+}

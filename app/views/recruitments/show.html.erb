@@ -1,0 +1,93 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @recruitment.name %>
+    </h2>
+    <div class='item-img-content'>
+      <%= image_tag @recruitment.image ,class:"item-box-img" %>
+      <% if @recruitment.order.present? %>
+          <div class='sold-out'>
+            <span>募集終了!!</span>
+          </div>
+      <% end %>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        <%= '時給'%><%= @recruitment.salary%>円
+      </span>
+      <span class="item-price">
+        <%= '日付' %>
+        <%= @recruitment.date %>
+      </span>
+    </div>
+
+    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+     <% if user_signed_in? && current_user == @recruitment.user %>
+      <%= link_to '求人の編集', edit_recruitment_path(@recruitment), class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', recruitment_path(@recruitment), method: :delete, class:'item-destroy' %>
+      <% else %>
+      <%# 商品が売れていない場合はこちらを表示しましょう %>
+      <%# <%= link_to '応募画面に進む', "#" ,class:"item-red-btn"%>
+
+      <% unless @recruitment.order.present? %>
+        <div class="favorite-btn">
+          <%= link_to new_recruitment_order_path(@recruitment.id) do %>
+            <span>応募画面に進む</span>
+          <% end %>
+        </div>
+        <%# //商品が売れていない場合はこちらを表示しましょう %>
+      <% end %>
+     <% end %>
+
+    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+
+    <div class="item-explain-box">
+      <span><%= "求人説明" %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">店名</th>
+          <td class="detail-value"><%= @recruitment.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">日付</th>
+          <td class="detail-value"><%= @recruitment.date %></td>
+        </tr><tr>
+        <tr>
+          <th class="detail-item">ジャンル</th>
+          <td class="detail-value"><%= @recruitment.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">給料</th>
+          <td class="detail-value"><%= @recruitment.salary %>円</td>
+        </tr>
+        <tr>
+          <th class="detail-item">勤務地</th>
+          <td class="detail-value"><%= @recruitment.place %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">最寄り駅</th>
+          <td class="detail-value"><%= @recruitment.station %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">電話番号</th>
+          <td class="detail-value"><%= @recruitment.phone %></td>
+        </tr>
+        <tr>
+          <td colspan='2' class='detail-value'>
+            <%= @recruitment.info %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <%# /商品の概要 %>
+
+</div>
+
+<%= render "shared/footer" %>

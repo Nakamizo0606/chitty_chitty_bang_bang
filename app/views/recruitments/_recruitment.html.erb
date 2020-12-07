@@ -1,0 +1,50 @@
+
+<li class="list">
+  <%= link_to recruitment_path(recruitment) do %>
+    <div class="item-img-content">
+      <%= image_tag recruitment.image, class: 'item-img' %>
+      <% if recruitment.order.present? %>
+          <div class='sold-out'>
+            <span>募集終了!!</span>
+          </div>
+      <% end %>
+    </div>
+    <div class="item-info">
+      <h3 class="item-name">
+        <%= recruitment.name %>
+      </h3>
+      <table class="recruitment-table">
+				<tbody>
+					<tr>
+						<th>勤務地</th>
+						<td>
+							<p>
+								<span class="location01"><%= recruitment.area_name %></span>
+								<span class="location02">最寄り駅：<%= recruitment.station %></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>日付</th>
+						<td><%= recruitment.date %></td>
+					</tr>
+					<tr>
+						<th>時給</th>
+						<td><%= recruitment.salary %> 円</td>
+					</tr>
+					<tr>
+						<th>勤務時間</th>
+						<td>
+								<%= recruitment.time_start %> ~ <%= recruitment.time_finish %>
+						</td>
+					</tr>
+					<tr>
+						<th>仕事内容</th>
+						<td><%= recruitment.info[0, 30] %></td>
+					</tr>
+				</tbody>
+			</table>
+
+    </div>
+  <% end %>      
+</li>

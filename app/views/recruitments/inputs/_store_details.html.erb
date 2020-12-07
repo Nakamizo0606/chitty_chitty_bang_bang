@@ -1,0 +1,68 @@
+<div class="form">
+  <div class="weight-bold-text">
+      ジャンル
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.collection_select(
+      :genre_id,
+      Genre.all,
+      :id, 
+      :name,
+      {},
+      {class:"select-box", id:"item-scheduled-delivery"}) 
+    %>
+  
+  <div class="weight-bold-text">
+      エリア
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.collection_select(
+      :area_id,
+      Area.all,
+      :id, 
+      :name,
+      {},
+      {class:"select-box", id:"item-category"}) 
+    %>
+
+
+  <div class="weight-bold-text">
+      日付
+      <span class="indispensable">必須</span>
+  </div>
+  <%= f.date_field :date, value: @recruitment.date,class:"items-text", id:"item-name" %>
+
+  <div class="weight-bold-text">
+      時間
+      <span class="indispensable">必須</span>
+  </div>
+  <div class='time-wrapper'>
+    <%= f.time_field :time_start,  value: @recruitment.time_start,  class:"items-text", id:"item-name" %> ~ 
+    <%= f.time_field :time_finish, value: @recruitment.time_finish, class:"items-text", id:"item-name" %>
+  </div>
+  
+  <div class="weight-bold-text">
+    時給
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :salary, class:"items-text", id:"item-name", placeholder:"例) 時給1000円", maxlength:"40" %>
+  
+  <div class="weight-bold-text">
+    場所
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :place, class:"items-text", id:"item-name", placeholder:"例)　東京都渋谷区渋谷◯-◯-◯", maxlength:"40" %>
+  
+  <div class="weight-bold-text">
+    電話番号
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :phone, class:"items-text", id:"item-name", placeholder:"例)　000-0000-0000", maxlength:"40" %>
+  
+  <div class="weight-bold-text">
+    最寄り駅
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :station, class:"items-text", id:"item-name", placeholder:"例)　渋谷", maxlength:"40" %>
+
+</div>

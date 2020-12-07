@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ChittyChittyBangBang</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Chitty×2 Bang×2</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= javascript_pack_tag 'application' %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <%# <%= render "shared/header" if controller_name == 'users' %>
+  <%= yield %>
+</body>
+
 </html>

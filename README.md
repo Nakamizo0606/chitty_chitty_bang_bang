@@ -8,11 +8,11 @@
 予約等々が入って忙しい日だけ人手がほしいというオーナと
 仕事を探している人、スポットで働きたい人、副業したい人を
 マッチングさせるアプリです。
-店側のメリット　人件費を削減できる
-働く側のメリット　自分の空いている時間で働ける
-　　　　　　　　　すぐに仕事が見つかる
-　　　　　　　　　副業に最適
-店側のデメリット　固定された人が来ないので業務説明が毎回大変
+店側のメリット 人件費を削減できる
+働く側のメリット   自分の空いている時間で働ける
+                すぐに仕事が見つかる
+                副業に最適
+店側のデメリット 固定された人が来ないので業務説明が毎回大変
 ・DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)						
 ⇒特に、デプロイがまだできていない場合はDEMOをつけることで見た目を企業側に伝えることができます。						
 ・工夫したポイント						
@@ -45,20 +45,20 @@
 
 ## recruitment テーブル
 
-| Column                 | Type         | Options           |
-| -----------------------| ------------ | ----------------- |
-| name                   | string       | null: false       |
-| date                   | string       | null: false       |
-| info                   | text         | null: false       |
-| area_id                | integer      | null: false       |
-| salary                 | string       | null: false       |
-| time                   | string       | null: false       |
-| station                | string       | null: false       |
-| phone                  | string       | null: false       |
-| plsce                  | string       | null: false       |
-| genre_id               | integer      | null: false       |
-| prefecture_id          | integer      | null: false       |
-| user                   | references   | foreign_key: true |
+| Column                 | Type         | Options                      |
+| -----------------------| ------------ | -----------------------------|
+| name                   | string       | null: false                  |
+| date                   | string       | null: false                  |
+| info                   | text         | null: false  max_length 300  |    
+| municipality_id        | integer      | null: false                  |
+| salary                 | integer      | null: false                  |
+| time                   | string       | null: false                  |
+| station                | string       | null: false                  |
+| phone                  | string       |                              |  
+| address                | string       |                              |    
+| unit_id                | integer      | null: false                  |    
+| prefecture_id          | integer      | null: false                  | 
+| user                   |              | foreign_key: true            |
 
 ### Association
 - belongs_to :  user

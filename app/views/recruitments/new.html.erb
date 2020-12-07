@@ -1,0 +1,17 @@
+<div class='shaded-glass'>
+  <div class="items-sell-contents">
+  <%= render 'recruitments/shared/header' %>
+
+    <div class="items-sell-main">
+      <h2 class="items-sell-title">求人の情報を入力</h2>
+      <%= form_with(model: @recruitment, local: true) do |f| %>
+        <%= render 'recruitments/inputs/image',         f: f %>
+        <%= render 'recruitments/inputs/item',          f: f %>
+        <%= render 'recruitments/inputs/item_detail',   f: f %>
+        <%= render 'recruitments/inputs/store_details', f: f %>
+        <%= render 'recruitments/inputs/submit_btn',    f: f %>
+      <% end %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </div>
+</div>

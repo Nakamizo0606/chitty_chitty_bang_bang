@@ -1,0 +1,17 @@
+<%# 商品名と商品説明 %>
+<div class="new-items">
+  <div class="weight-bold-text">
+    店舗名
+    <span class="indispensable">必須</span>
+  </div>
+  <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"店舗名（必須 40文字まで)", maxlength:"40" %>
+  
+  <div class="items-explain">
+    <div class="weight-bold-text">
+      仕事内容
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :info, class:"items-text", id:"item-info", placeholder:"仕事内容の説明（必須 1,000文字まで）（作業内容、労働時間、注意点など）例）キッチン業務をお願いします。11:00~20:00(休憩1時間)・仕込み・調理・盛り付け・洗い物など" ,rows:"7" ,maxlength:"1000" %>
+  </div>
+</div>
+<%# /商品名と商品説明 %>
